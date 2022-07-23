@@ -4,7 +4,10 @@
   box-sizing: border-box;
   font-family: "Jost", sans-serif;
 }
-
+/* a hùng */
+li {
+  list-style: none;
+}
 :root {
   --secondary: #f53626;
   --heading-color: #000c04;
@@ -136,7 +139,7 @@ a#navbarDropdown.nav-link.dropdown-toggle::after {
   left: 40%;
 }
 .owl-carousel .image_content {
-  width: 42%;
+  width: 45%;
   height: 60%;
 }
 .owl-carousel .image h1 {
@@ -200,21 +203,21 @@ a#navbarDropdown.nav-link.dropdown-toggle::after {
 .owl-carousel .image_1 {
   width: 100%;
   height: 95vh;
-  background-image: url(./img/banner1.jpg);
+  background-image: url(../img/banner1.jpg);
   background-size: cover !important;
   background-position: center;
 }
 .owl-carousel .image_2 {
   width: 100%;
   height: 95vh;
-  background-image: url(./img/banner2.jpg);
+  background-image: url(../img/banner2.jpg);
   background-size: cover !important;
   background-position: center;
 }
 .owl-carousel .image_3 {
   width: 100%;
   height: 95vh;
-  background-image: url(./img/banner3.jpg);
+  background-image: url(../img/banner3.jpg);
 
   background-size: cover !important;
   background-position: center;
@@ -222,7 +225,7 @@ a#navbarDropdown.nav-link.dropdown-toggle::after {
 .owl-carousel .image_4 {
   width: 100%;
   height: 95vh;
-  background-image: url(./img/banner4.jpg);
+  background-image: url(../img/banner4.jpg);
   background-size: cover !important;
   background-position: center;
 }
@@ -603,7 +606,7 @@ a#navbarDropdown.nav-link.dropdown-toggle::after {
     line-height: 40px;
   }
 }
-/* reponsive for lanscape phone  */
+/* reponsive for portage phone  */
 @media only screen and (max-width: 575.98px) {
   .navbar {
     padding: 8px 20px;
@@ -617,4 +620,234 @@ a#navbarDropdown.nav-link.dropdown-toggle::after {
     right: 3em;
     top: 1em;
   }
+}
+
+/* US -hùng*/
+.us {
+  background-color: #fff;
+  margin-bottom: 100px;
+}
+.us__right {
+  padding-top: 70px;
+}
+.us .us__left img {
+  width: 100%;
+  border-radius: 10px;
+  /* height: auto; */
+}
+.us .us__right h6 {
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 2em;
+  letter-spacing: 1px;
+  color: var(--secondary);
+}
+.us .us__right h3 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  text-transform: capitalize;
+}
+.us .us__right p {
+  font-size: 16px;
+  line-height: 24.5px;
+  color: #696969;
+  margin: 15px 0 35px 0;
+}
+.us__right ul i {
+  color: var(--primary-color);
+  margin-right: 12px;
+  background: #f9f8fd;
+  font-size: 10px;
+  padding: 8px;
+  border-radius: 50%;
+  /* display: inline-block; */
+}
+.us__right ul {
+  list-style: none;
+}
+.us__right li {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  margin: 15px 0;
+  font-weight: 600;
+}
+/* NUMBER - HÙNG*/
+.number {
+  background-color: #189a46;
+  text-align: center;
+  color: #fff;
+}
+.number .row span {
+  font-size: 50px;
+  line-height: 60px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+.number .row h2 {
+  font-size: 20px;
+  line-height: 25px;
+  text-transform: capitalize;
+  margin-top: 10px;
+  opacity: 0.8;
+  font-weight: 400;
+}
+/* PLANS - HÙNG */
+.plans {
+  background-color: #f9f8fd;
+}
+.plans .container {
+  width: 80%;
+}
+.plans .content {
+  padding: 3.5em 2.5em;
+  background-color: #fff;
+}
+.plans__header {
+  margin-bottom: 5rem !important;
+}
+.plans__header p {
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+.plans__header h2 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  text-transform: capitalize;
+}
+.plans__content .content__top h6 {
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: 600;
+}
+.plans__content .content__top h4 {
+  font-size: 40px;
+  line-height: 45px;
+  margin: 15px 0 20px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.content__top label {
+  font-size: 25px;
+  vertical-align: text-top;
+}
+.content__top span {
+  font-size: 16px;
+  line-height: 25px;
+  color: #999;
+  font-weight: 400;
+}
+.plans__content .content__active {
+  z-index: 1;
+  margin: -40px 0;
+  box-shadow: 0 10px 30px 0 rgb(17 17 17 / 9%);
+  border-radius: 6px;
+}
+.plans__content .content__active .content__top {
+  padding: 2em 2.5em 0.5em;
+  background: var(--primary-color);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  color: #fff;
+  margin: 0 -16px;
+}
+.plans__content .content__active .content__top h5 {
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--primary-color);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  font-weight: 700;
+  display: inline-block;
+  padding: 8px 20px;
+  background: #fff;
+  border-radius: 10px;
+}
+.plans__content .content__active .content__top h4 {
+  color: #fff;
+}
+.plans .plans__content .btn {
+  padding: 12px 35px;
+  font-size: 18px;
+  line-height: 28px;
+  text-transform: capitalize;
+  font-weight: 400;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.plans .plans__content .btn:hover {
+  color: #fff;
+  background-color: #116e32;
+  border-color: #116e32;
+}
+.content__bottom {
+  padding: 2em 2.5em 3.5em;
+}
+.content__bottom li {
+  margin-bottom: 5px;
+  color: #304659;
+  line-height: 30px;
+}
+/* NUTRITION */
+.nutrition {
+  background-color: #f9f8fd;
+}
+.nutrition .container {
+  width: 70%;
+}
+video {
+  width: 100%;
+}
+.nutri__video .video_play_icon {
+  background: #fff;
+  display: inline-block;
+  left: 50px;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+}
+.position-relative {
+  position: relative;
+}
+.position-absolute {
+  position: absolute !important;
+  left: 45%;
+  right: 0;
+  top: 40%;
+}
+.position-absolute i {
+  color: #189a46;
+}
+.nutri__header h6 {
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 2em;
+  letter-spacing: 1px;
+  color: var(--secondary);
+}
+.nutri__header h4 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  text-transform: capitalize;
+}
+.nutri__video video {
+  border-radius: 10px;
 }
