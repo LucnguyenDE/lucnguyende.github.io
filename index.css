@@ -1,0 +1,220 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background: linear-gradient(to left, #9d33f3, #8d33f3);
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 60vw;
+  margin-top: 10vh;
+  margin-bottom: 30px;
+  padding: 50px;
+  border: 1px solid rgb(235, 233, 233);
+  background: linear-gradient(
+    111.29deg,
+    rgba(255, 255, 255, 0.53) -1.83%,
+    rgba(255, 255, 255, 0) 109.95%
+  );
+  box-shadow: 50px 60px 100px rgb(0 0 0 / 5%);
+  backdrop-filter: blur(70px);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+.container_1 {
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 50%;
+  height: 100%;
+}
+h1 {
+  font-size: 35px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.container_1 p {
+  font-size: 17px;
+  line-height: 25px;
+}
+.container_1 button {
+  margin-top: 30px;
+  border: 0;
+  width: 120px;
+  height: 50px;
+  font-size: 17px;
+  color: #ffffff;
+  background: linear-gradient(
+    111.29deg,
+    rgba(255, 255, 255, 0.53) -1.83%,
+    rgba(255, 255, 255, 0) 109.95%
+  );
+  box-shadow: 50px 60px 100px rgb(0 0 0 / 5%);
+  border-radius: 10px;
+  font-family: "br_omega", sans-serif;
+  border: 1px solid rgb(235, 233, 233);
+  cursor: pointer;
+  transition: 0.7s;
+}
+.container_1 button:hover {
+  border-color: #9d33f3;
+}
+.container_1 input {
+  background: transparent;
+  border-radius: 6px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 30px rgb(0 0 0 / 20%);
+  outline: none;
+  padding: 15px;
+  font-size: 17px;
+  color: white;
+  margin-top: 15px;
+  transition: 0.5s;
+}
+.container_1 input:hover {
+  border-color: #9d33f3;
+}
+#container_2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+}
+/* ////
+Phần chỉnh js
+*/
+/* style1-show picture 0 */
+.style0 .type1,
+.style0 .type2,
+.style0 .type3,
+.style0 .type4,
+.style0 .type5,
+.style0 .type6,
+.style0 .type1_p,
+.style0 .type2_p,
+.style0 .type3_p,
+.style0 .type4_p,
+.style0 .type5_p,
+.style0 .type6_p {
+  display: none;
+}
+/* style1-show picture 1 */
+.style1 .type0,
+.style1 .type2,
+.style1 .type3,
+.style1 .type4,
+.style1 .type5,
+.style1 .type6,
+.style1 .type2_p,
+.style1 .type3_p,
+.style1 .type4_p,
+.style1 .type5_p,
+.style1 .type6_p {
+  display: none;
+}
+/* style2-show picture 2 */
+.style2 .type0,
+.style2 .type1,
+.style2 .type3,
+.style2 .type4,
+.style2 .type5,
+.style2 .type6,
+.style2 .type1_p,
+.style2 .type3_p,
+.style2 .type4_p,
+.style2 .type5_p,
+.style2 .type6_p {
+  display: none;
+}
+/* style3-show picture 3 */
+.style3 .type0,
+.style3 .type1,
+.style3 .type2,
+.style3 .type4,
+.style3 .type5,
+.style3 .type6,
+.style3 .type1_p,
+.style3 .type2_p,
+.style3 .type4_p,
+.style3 .type5_p,
+.style3 .type6_p {
+  display: none;
+}
+/* style4-show picture 4 */
+.style4 .type0,
+.style4 .type1,
+.style4 .type2,
+.style4 .type3,
+.style4 .type5,
+.style4 .type6,
+.style4 .type1_p,
+.style4 .type2_p,
+.style4 .type3_p,
+.style4 .type5_p,
+.style4 .type6_p {
+  display: none;
+}
+/* style5-show picture 5 */
+.style5 .type0,
+.style5 .type1,
+.style5 .type2,
+.style5 .type3,
+.style5 .type4,
+.style5 .type6,
+.style5 .type1_p,
+.style5 .type2_p,
+.style5 .type3_p,
+.style5 .type4_p,
+.style5 .type6_p {
+  display: none;
+}
+/* style6-show picture 6 */
+.style6 .type0,
+.style6 .type1,
+.style6 .type2,
+.style6 .type3,
+.style6 .type4,
+.style6 .type5,
+.style6 .type1_p,
+.style6 .type2_p,
+.style6 .type3_p,
+.style6 .type4_p,
+.style6 .type5_p {
+  display: none;
+}
+.style1 .type1,
+.style1 .type1_p,
+.style2 .type2,
+.style2 .type2_p,
+.style3 .type3,
+.style3 .type3_p,
+.style4 .type4,
+.style4 .type4_p,
+.style5 .type5,
+.style5 .type5_p,
+.style6 .type6,
+.style6 .type6_p {
+  opacity: 0;
+  animation: zoom_in 1s 0.5s forwards;
+}
+@keyframes zoom_in {
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(100%, 100%);
+    opacity: 1;
+  }
+}
