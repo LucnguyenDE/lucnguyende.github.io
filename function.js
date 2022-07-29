@@ -8,25 +8,12 @@ function put_text_into_id(id, text_content) {
 }
 // Lấy giá trị của ID
 function dom_id_value(id) {
-  var tag_id = document.getElementById(id);
-  var valuez = tag_id.value;
-  return valuez;
+  return document.getElementById(id).value;
 }
 // Xóa các giá trị vừa nhập
-function ecrease_input_value(id, value) {
+function ecrease_input_value(id) {
   var tagID = document.getElementById(id);
-  var value;
-  return (tagID.value = `${value}`);
-}
-//Trả về giá trị cho biếns
-function return_value(id, value) {
-  value = dom_id_value(id);
-}
-//Trả về giá trị cho biến, xóa các giá trị đã nhập trong ô input trên màn hình
-function return_and_ecrease(id, value) {
-  var value;
-  value = dom_id_value(id);
-  ecrease_input_value(id);
+  return (tagID.value = "");
 }
 // Thêm item vào cuối mảng
 function add_item_to_end(array_A, item) {
@@ -97,16 +84,4 @@ function return_name_of_number(aa) {
     default:
       return "không";
   }
-}
-//Lấy màu ngẫu nhiên
-function getRandomColor() {
-  var letters = "0123456789ABCDEF";
-  var color = "#";
-  for (var i = 0; i < 6; i++) {
-    //Math floor làm tròn về số nguyên nhỏ hơn
-    //Math.random() ra kết quả bé hơn 1 (ví dụ: 0,123415125)
-    // letter có 15 kí tự từ 0 - 15
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
 }

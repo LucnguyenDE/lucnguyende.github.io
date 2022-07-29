@@ -1,80 +1,105 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- Bootstrap  -->
+    <title>Music play</title>
+    <!-- font  -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-      crossorigin="anonymous"
-    />
-    <!-- font awesome  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <!-- font google  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- bs4  -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600&display=swap"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
     />
-    <!-- css  -->
+    <!-- main css  -->
     <link rel="stylesheet" href="./index.css" />
   </head>
-  <body id="body">
+  <body>
     <div class="container">
-      <div class="container_1">
-        <h1>Calculate your BMI</h1>
-        <p>
-          Body Mass Index (BMI) is calculated using your height and weight and
-          is approximately related to body fat percentage.
-        </p>
-        <input id="height" type="number" placeholder="Heigh in CM" />
-        <input id="weight" type="number" placeholder="Weight in KG" />
-        <button id="submit" onclick="calculate_bmi()">Calculate</button>
+      <h5>Playing music 1 of 4</h5>
+      <div class="image_container">
+        <img
+          src="https://cyber-music-player.vercel.app/images/Faded.jpg"
+          class="img_pause_animation"
+          id="img"
+          alt=""
+        />
       </div>
-      <div id="container_2" class="container_2 style0">
-        <img class="type0" id="type_0" src="./img/undraw_personal_training_0dqn.svg" alt="" />
-        <img class="type1" id="type1" src="./img/body-1.png" alt="" />
-        <p class="type1_p" id="type1_p"></p>
-        <img class="type2" id="type2" src="./img/body-2.png" alt="" />
-        <p class="type2_p" id="type2_p"></p>
-        <img class="type3" id="type3" src="./img/body-3.png" alt="" />
-        <p class="type3_p" id="type3_p"></p>
-        <img class="type4" id="type4" src="./img/body-4.png" alt="" />
-        <p class="type4_p" id="type4_p"></p>
-        <img class="type5" id="type5" src="./img/body-5.png" alt="" />
-        <p class="type5_p" id="type5_p"></p>
-        <img class="type6" id="type6" src="./img/body-6.png" alt="" />
-        <p class="type6_p" id="type6_p"></p>
+      <h4 id="name">Faded</h4>
+      <h6 id="artist">Alan Walker</h6>
+      <!-- //controls: thêm các chức năng cho audio onplaying -->
+      <audio id="audio" src="./songs/Alan Walker - Faded.mp3"></audio>
+      <div class="timer d-flex justify-content-center align-items-center">
+        <span id="min_length"></span>
+        <input
+          class="slider m-3"
+          type="range"
+          id="timer"
+          onchange="changeCurrentTime()"
+        />
+        <span id="max_length"></span>
+      </div>
+      <div class="d-flex adjust_volume">
+        <i class="fa-solid fa-volume-low"></i>
+        <input
+          class="slider m-3"
+          id="adjust_volume"
+          type="range"
+          min="0"
+          max="100"
+          oninput="adjustVolume()"
+        />
+        <i class="fa-solid fa-volume-high"></i>
+      </div>
+      <div class="feature d-flex">
+        <!-- Phát ngẫu nhiên  -->
+        <div class="feature_shuffle">
+          <button><i class="fa-solid fa-shuffle"></i></button>
+        </div>
+        <!-- BACK  -->
+        <div class="feature_back mx-3">
+          <button><i class="fa-solid fa-backward-fast"></i></button>
+        </div>
+        <!-- Play Pause  -->
+        <div class="feature_play_pause mx-3">
+          <button id="play" onclick="playAudio()">
+            <i class="fa fa-play"></i>
+          </button>
+          <button class="d-none" id="pause" onclick="pauseAudio()">
+            <i class="fa fa-pause"></i>
+          </button>
+        </div>
+        <!-- NEXT -->
+        <div class="feature_next mx-3">
+          <button onclick="nextAudio()">
+            <i class="fa-solid fa-forward-fast"></i>
+          </button>
+        </div>
+        <div class="feature_load">
+          <button onclick="reloadAudio()">
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+          </button>
         </div>
       </div>
+      <div class="d-none" id="wave_animation">
+        <div class="wave mr-2 wave_outside"></div>
+        <div class="wave mr-2 wave_inside_1"></div>
+        <div class="wave mr-2 wave_inside_2"></div>
+        <div class="wave mr-2 wave_iner_all"></div>
+        <div class="wave mr-2 wave_inside_2"></div>
+        <div class="wave mr-2 wave_inside_1"></div>
+        <div class="wave mr-2 wave_outside"></div>
+      </div>
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
-      integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
-      crossorigin="anonymous"
-    ></script>
     <script src="./function.js"></script>
     <script src="./index.js"></script>
   </body>
