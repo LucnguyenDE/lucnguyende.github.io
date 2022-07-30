@@ -25,7 +25,7 @@
   </head>
   <body>
     <div class="container">
-      <h5>Playing music 1 of 4</h5>
+      <h4 class="text-white" id="seri">Playing music 1 of 5</h4>
       <div class="image_container">
         <img
           src="https://cyber-music-player.vercel.app/images/Faded.jpg"
@@ -34,21 +34,21 @@
           alt=""
         />
       </div>
-      <h4 id="name">Faded</h4>
-      <h6 id="artist">Alan Walker</h6>
+      <h5 class="text-white my-1" id="name">Faded</h5>
+      <h6 class="text-white" id="artist">Alan Walker</h6>
       <!-- //controls: thêm các chức năng cho audio onplaying -->
       <audio id="audio" src="./songs/Alan Walker - Faded.mp3"></audio>
       <div class="timer d-flex justify-content-center align-items-center">
-        <span id="min_length"></span>
+        <span class="text-white" id="played_time"></span>
         <input
           class="slider m-3"
           type="range"
           id="timer"
           onchange="changeCurrentTime()"
         />
-        <span id="max_length"></span>
+        <span class="text-white" id="full_time"></span>
       </div>
-      <div class="d-flex adjust_volume">
+      <div class="d-flex adjust_volume my-4">
         <i class="fa-solid fa-volume-low"></i>
         <input
           class="slider m-3"
@@ -63,24 +63,28 @@
       <div class="feature d-flex">
         <!-- Phát ngẫu nhiên  -->
         <div class="feature_shuffle">
-          <button><i class="fa-solid fa-shuffle"></i></button>
+          <button onclick="turnModeShuffle()">
+            <i class="fa-solid fa-shuffle" id="shuffle_btn"></i>
+          </button>
         </div>
         <!-- BACK  -->
-        <div class="feature_back mx-3">
-          <button><i class="fa-solid fa-backward-fast"></i></button>
+        <div class="feature_back mx-4">
+          <button onclick="playPrevAudio()">
+            <i class="fa-solid fa-backward-fast"></i>
+          </button>
         </div>
         <!-- Play Pause  -->
-        <div class="feature_play_pause mx-3">
+        <div class="feature_play_pause mx-2">
           <button id="play" onclick="playAudio()">
-            <i class="fa fa-play"></i>
+            <i class="fa-solid fa-circle-play" id="icon_larger"></i>
           </button>
           <button class="d-none" id="pause" onclick="pauseAudio()">
-            <i class="fa fa-pause"></i>
+            <i class="fa-solid fa-circle-pause" id="icon_larger"></i>
           </button>
         </div>
         <!-- NEXT -->
-        <div class="feature_next mx-3">
-          <button onclick="nextAudio()">
+        <div class="feature_next mx-4">
+          <button onclick="playNextAudio()">
             <i class="fa-solid fa-forward-fast"></i>
           </button>
         </div>
@@ -90,14 +94,16 @@
           </button>
         </div>
       </div>
-      <div class="d-none" id="wave_animation">
-        <div class="wave mr-2 wave_outside"></div>
-        <div class="wave mr-2 wave_inside_1"></div>
-        <div class="wave mr-2 wave_inside_2"></div>
-        <div class="wave mr-2 wave_iner_all"></div>
-        <div class="wave mr-2 wave_inside_2"></div>
-        <div class="wave mr-2 wave_inside_1"></div>
-        <div class="wave mr-2 wave_outside"></div>
+      <div class="wave_container">
+        <div class="d-none" id="wave_animation">
+          <div class="wave mr-2 wave_outside"></div>
+          <div class="wave mr-2 wave_inside_1"></div>
+          <div class="wave mr-2 wave_inside_2"></div>
+          <div class="wave mr-2 wave_iner_all"></div>
+          <div class="wave mr-2 wave_inside_2"></div>
+          <div class="wave mr-2 wave_inside_1"></div>
+          <div class="wave mr-2 wave_outside"></div>
+        </div>
       </div>
     </div>
     <script src="./function.js"></script>

@@ -4,23 +4,60 @@
   box-sizing: border-box;
 }
 body {
-  padding: 80px;
-  background-image: url(https://img.freepik.com/free-vector/nice-colors-background-with-fluid-wavy-shapes_1017-33502.jpg?w=2000);
+  background: linear-gradient(to right, rgb(74, 215, 148), rgb(164, 1, 124));
+  padding: 50px;
+}
+.feature * {
+  font-size: 25px;
+  transition: all 0.3s;
+}
+.feature_shuffle:hover,
+.feature_back:hover,
+.feature_play_pause:hover,
+.feature_next:hover,
+.feature_load:hover {
+  opacity: 0.7;
+}
+
+.adjust_volume {
+  font-size: 20px;
+}
+button {
+  background-color: transparent;
+  border: none;
+}
+i {
+  color: white;
+}
+#icon_larger {
+  font-size: 45px;
 }
 .container {
+  width: 50vh;
+  height: 80vh;
+  border: 1px solid transparent;
+  /* padding: 30px; */
+  border-radius: 20px;
+  box-shadow: rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+.wave_container {
+  height: 100px;
+  width: 100px;
+  display: block;
+}
 #wave_animation {
   display: flex;
+  justify-content: center;
 }
 .wave {
   margin-top: 20px;
-  height: 100px;
-  width: 8px;
+  height: 80px;
+  width: 4px;
   background-color: white;
   border-radius: 8px;
 }
@@ -29,10 +66,12 @@ body {
 }
 @keyframes wave_out_side {
   0% {
+    background-color: white;
     transform: scaleY(80%);
     opacity: 1;
   }
   50% {
+    background-color: palevioletred;
     transform: scaleY(20%);
     opacity: 0.5;
   }
@@ -46,10 +85,12 @@ body {
 }
 @keyframes wave_out_side {
   0% {
+    background-color: white;
     transform: scaleY(80%);
     opacity: 1;
   }
   50% {
+    background-color: palevioletred;
     transform: scaleY(20%);
     opacity: 0.5;
   }
@@ -67,6 +108,7 @@ body {
     opacity: 1;
   }
   50% {
+    background-color: palevioletred;
     transform: scaleY(20%);
     opacity: 0.5;
   }
@@ -84,6 +126,7 @@ body {
     opacity: 1;
   }
   50% {
+    background-color: palevioletred;
     transform: scaleY(20%);
     opacity: 0.5;
   }
@@ -118,11 +161,10 @@ body {
   height: 2px;
   background: #d3d3d3;
   outline: none;
-  opacity: 0.7;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
+  opacity: 0.6;
+  -webkit-transition: 0.3s;
+  transition: opacity 0.3s;
 }
-
 .slider:hover {
   opacity: 1;
 }
@@ -130,10 +172,11 @@ body {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
-  background: #04aa6d;
+  border: 1px solid transparent;
+  background: white;
   cursor: pointer;
 }
 

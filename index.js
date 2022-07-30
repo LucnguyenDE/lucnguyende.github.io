@@ -1,96 +1,70 @@
-//img
-//đàonương: https://i.ytimg.com/vi/PM9Vc_agAqg/maxresdefault.jpg
-//faded: https://cyber-music-player.vercel.app/images/Faded.jpg
-//tsmt: https://salt.tikicdn.com/ts/tmp/d8/46/10/a4f728d583ca7693589375babeb07c9b.jpg
-//xuânthángba: https://i1.sndcdn.com/artworks-YIesfXSZxuthUthD-2nO8eQ-t500x500.jpg
-//dejavu: https://i1.sndcdn.com/artworks-LvTdHlotpRViB8DK-yIyxcw-t500x500.jpg
+const audio = dom_id("audio");
+const audio_seri = dom_id("seri");
+const audio_name = dom_id("name");
+const artist_name = dom_id("artist");
+const audio_path = dom_id("audio");
+const audio_image = dom_id("img");
+const full_time_text = dom_id("full_time");
+const played_time_text = dom_id("played_time");
 const Album = {
-  song1: {
-    name: "Faded",
-    artist: "Alan Walker",
-    path: "./songs/Alan Walker - Faded.mp3",
-    image: "https://cyber-music-player.vercel.app/images/Faded.jpg",
-  },
-  song2: {
-    name: "Đào nương",
-    artist: "Hoàng Vương",
-    path: "./songs/DaoNuong-HoangVuong-7037330.mp3",
-    image: "https://i.ytimg.com/vi/PM9Vc_agAqg/maxresdefault.jpg",
-  },
-  song3: {
-    name: "Deja vu",
-    artist: "Olivia Rodrigo",
-    path: "./songs/Deja Vu - Olivia Rodrigo.mp3",
-    image:
-      "https://i1.sndcdn.com/artworks-LvTdHlotpRViB8DK-yIyxcw-t500x500.jpg",
-  },
-  song4: {
-    name: "Mộ tuyết",
-    artist: "Thiên Sơn Mộ Tuyết OST",
-    path: "./songs/MoTuyetThienSonMoTuyetOST-V.A-2982516.mp3",
-    image:
-      "https://salt.tikicdn.com/ts/tmp/d8/46/10/a4f728d583ca7693589375babeb07c9b.jpg",
-  },
-  song5: {
-    name: "Xuân Tháng Ba",
-    artist: "TunamTina",
-    path: "./songs/XuanThangBa-TuNamTiNa-6231142.mp3",
-    image:
-      "https://i1.sndcdn.com/artworks-YIesfXSZxuthUthD-2nO8eQ-t500x500.jpg",
-  },
+  seri: ["1", "2", "3", "4", "5"],
+  name: ["Faded", "Đào nương", "Deja vu", "Mộ tuyết", "Xuân Tháng Ba"],
+  artist: [
+    "Alan Walker",
+    "Hoàng Vương",
+    "Olivia Rodrigo",
+    "Thiên Sơn Mộ Tuyết OST",
+    "TunamTina",
+  ],
+  path: [
+    "./songs/Alan Walker - Faded.mp3",
+    "./songs/DaoNuong-HoangVuong-7037330.mp3",
+    "./songs/Deja Vu - Olivia Rodrigo.mp3",
+    "./songs/MoTuyetThienSonMoTuyetOST-V.A-2982516.mp3",
+    "./songs/XuanThangBa-TuNamTiNa-6231142.mp3",
+  ],
+  image: [
+    "https://cyber-music-player.vercel.app/images/Faded.jpg",
+    "https://i.ytimg.com/vi/PM9Vc_agAqg/maxresdefault.jpg",
+    "https://i1.sndcdn.com/artworks-LvTdHlotpRViB8DK-yIyxcw-t500x500.jpg",
+    "https://salt.tikicdn.com/ts/tmp/d8/46/10/a4f728d583ca7693589375babeb07c9b.jpg",
+    "https://i1.sndcdn.com/artworks-YIesfXSZxuthUthD-2nO8eQ-t500x500.jpg",
+  ],
 };
-console.log("Album.song1.artist: ", Album.song1.artist);
-var audio = dom_id("audio");
+//Play audio
 function playAudio() {
-  var button_pause = dom_id("pause");
-  button_pause.classList.remove("d-none");
-  var button_play = dom_id("play");
-  button_play.classList.add("d-none");
-  //Audio Animation
-  var img = dom_id("img");
-  img.className = "img_play_animation";
+  //add d-none: hidden --- remove d-none: show
+  add("play", "d-none");
+  remove("pause", "d-none");
+  //play and pause audio image animation
+  assignClassName("img", "img_play_animation");
   //Wave Animation
-  var wave = dom_id("wave_animation");
-  wave.classList.remove("d-none");
-  //Timer thumb animation
+  remove("wave_animation", "d-none");
   audio.play();
 }
+//Pause audio
 function pauseAudio() {
-  var button_pause = dom_id("pause");
-  button_pause.classList.add("d-none");
-  var button_play = dom_id("play");
-  button_play.classList.remove("d-none");
-  //Audio animation
-  var img = dom_id("img");
-  img.className = "img_pause_animation";
-  //Wave animation
-  var wave = dom_id("wave_animation");
-  wave.classList.add("d-none");
+  add("pause", "d-none");
+  remove("play", "d-none");
+  assignClassName("img", "img_pause_animation");
+  add("wave_animation", "d-none");
   audio.pause();
 }
-
-//chỗ này đọc rồi viết ngắn lại
+//Replay 1 audio
 function reloadAudio() {
-  var button_play = dom_id("play");
-  button_play.classList.add("d-none");
-  var button_pause = dom_id("pause");
-  button_pause.classList.remove("d-none");
-  //Audio animation
-  var img = dom_id("img");
-  img.className = "img_play_animation";
-  //Wave animation
-  var wave = dom_id("wave_animation");
-  wave.classList.remove("d-none");
+  add("play", "d-none");
+  remove("pause", "d-none");
+  assignClassName("img", "img_play_animation");
+  remove("wave_animation", "d-none");
   audio.load();
   audio.play();
 }
-
-//volume
+//Adjus volume -- xem lại, chỉnh cho window
 function adjustVolume() {
   var input_number = document.getElementById("adjust_volume").value / 100;
   audio.volume = input_number;
 }
-//Timer
+//Change time
 function changeCurrentTime() {
   var timer = dom_id("timer");
   var input_time = timer.value / 100;
@@ -99,92 +73,177 @@ function changeCurrentTime() {
   audio.currentTime = current_time;
 }
 var count = 0;
-// Next Song - chỗ này dùng vòng for
-function nextAudio() {
-  count++;
-  // if (count === 1) {
-  //   var song_name = dom_id("name");
-  //   song_name.innerHTML = Album.song2.name;
-  //   var artist_name = dom_id("artist");
-  //   artist_name.innerHTML = Album.song2.artist;
-  //   var song_source = dom_id("audio");
-  //   song_source.src = Album.song2.path;
-  //   var image_source = dom_id("img");
-  //   image_source.src = Album.song2.image;
-  // }
-  if (count === 1) {
-    var song_name = dom_id("name");
-    song_name.innerHTML = Album.song2.name;
-    var artist_name = dom_id("artist");
-    artist_name.innerHTML = Album.song2.artist;
-    var song_source = dom_id("audio");
-    song_source.src = Album.song2.path;
-    var image_source = dom_id("img");
-    image_source.src = Album.song2.image;
-  } else if (count === 2) {
-    var song_name = dom_id("name");
-    song_name.innerHTML = Album.song3.name;
-    var artist_name = dom_id("artist");
-    artist_name.innerHTML = Album.song3.artist;
-    var song_source = dom_id("audio");
-    song_source.src = Album.song3.path;
-    var image_source = dom_id("img");
-    image_source.src = Album.song3.image;
-  } else if (count === 3) {
-    var song_name = dom_id("name");
-    song_name.innerHTML = Album.song4.name;
-    var artist_name = dom_id("artist");
-    artist_name.innerHTML = Album.song4.artist;
-    var song_source = dom_id("audio");
-    song_source.src = Album.song4.path;
-    var image_source = dom_id("img");
-    image_source.src = Album.song4.image;
-  } else if (count === 4) {
-    var song_name = dom_id("name");
-    song_name.innerHTML = Album.song5.name;
-    var artist_name = dom_id("artist");
-    artist_name.innerHTML = Album.song5.artist;
-    var song_source = dom_id("audio");
-    song_source.src = Album.song5.path;
-    var image_source = dom_id("img");
-    image_source.src = Album.song5.image;
-    return (count = 0);
+var n = 0;
+//Play previous song
+function playPrevAudio() {
+  randomBackgroundColor();
+  count--;
+  n--;
+  for (i = n; i <= count; i++) {
+    if (count === -1) {
+      audio_seri.innerHTML = `Playing music ${Album.seri[4]} of ${Album.seri.length}`;
+      audio_name.innerHTML = Album.name[4];
+      artist_name.innerHTML = Album.artist[4];
+      audio_path.src = Album.path[4];
+      audio_image.src = Album.image[4];
+      playAudio();
+      return (count = 4), (n = 4);
+    } else {
+      audio_seri.innerHTML = `Playing music ${Album.seri[i]} of ${Album.seri.length}`;
+      audio_name.innerHTML = Album.name[i];
+      artist_name.innerHTML = Album.artist[i];
+      audio_path.src = Album.path[i];
+      audio_image.src = Album.image[i];
+      playAudio();
+    }
   }
-  playAudio();
 }
-
-//Change time song
-function changeThumbPosition() {
-  var cur_time = audio.currentTime;
-  var cur_length = audio.duration;
-  dom_id("timer").value = (100 * cur_time) / cur_length;
+//Play next song
+function playNextAudio() {
+  randomBackgroundColor();
+  count++;
+  n++;
+  for (i = n; i <= count; i++) {
+    if (count === 5) {
+      audio_seri.innerHTML = `Playing music ${Album.seri[0]} of ${Album.seri.length}`;
+      audio_name.innerHTML = Album.name[0];
+      artist_name.innerHTML = Album.artist[0];
+      audio_path.src = Album.path[0];
+      audio_image.src = Album.image[0];
+      playAudio();
+      return (count = 0), (n = 0);
+    } else {
+      audio_seri.innerHTML = `Playing music ${Album.seri[i]} of ${Album.seri.length}`;
+      audio_name.innerHTML = Album.name[i];
+      artist_name.innerHTML = Album.artist[i];
+      audio_path.src = Album.path[i];
+      audio_image.src = Album.image[i];
+      playAudio();
+    }
+  }
 }
-//Update continous
+//Change time song - Hàm setInterval
 setInterval(myTimer, 1000);
 function myTimer() {
   var cur_time = audio.currentTime;
   var cur_length = audio.duration;
   dom_id("timer").value = (100 * cur_time) / cur_length;
-  //Max_length
-  var max_length = dom_id("max_length");
-  max_minute = Math.floor(audio.duration / 60);
-  max_second = Math.floor(audio.duration % 60);
-  max_length.innerHTML = `0${max_minute}:${max_second}`;
-  //min_length
-  var min_length = dom_id("min_length");
+  //display_full_time
+  var minute_part = Math.floor(audio.duration / 60);
+  var second_part = Math.floor(audio.duration % 60);
+  if (second_part < 10) {
+    full_time_text.innerHTML = `0${minute_part}:0${second_part}`;
+  } else {
+    full_time_text.innerHTML = `0${minute_part}:${second_part}`;
+  }
+  //display_played_time
   if (audio.currentTime < 60) {
     if (audio.currentTime < 10) {
-      min_length.innerHTML = `0:0${Math.floor(audio.currentTime)}`;
+      played_time_text.innerHTML = `0:0${Math.floor(audio.currentTime)}`;
     } else {
-      min_length.innerHTML = `0:${Math.floor(audio.currentTime)}`;
+      played_time_text.innerHTML = `0:${Math.floor(audio.currentTime)}`;
     }
   } else {
     c = Math.floor(audio.currentTime / 60);
     d = Math.floor(audio.currentTime % 60);
     if (d < 10) {
-      min_length.innerHTML = `0${c}:0${d}`;
+      played_time_text.innerHTML = `0${c}:0${d}`;
     } else {
-      min_length.innerHTML = `0${c}:${d}`;
+      played_time_text.innerHTML = `0${c}:${d}`;
     }
   }
+}
+var shuffle = 0;
+function turnModeShuffle() {
+  if (shuffle === 0) {
+    add("shuffle_btn", "text-danger");
+    return (shuffle = 1);
+  } else {
+    remove("shuffle_btn", "text-danger");
+    return (shuffle = 0);
+  }
+}
+setInterval(checkShuffle, 1000);
+function checkShuffle() {
+  if (audio.ended === true) {
+    if (shuffle === 1) {
+      count = Math.floor(Math.random() * 5);
+      audio_seri.innerHTML = `Playing music ${Album.seri[count]} of ${Album.seri.length}`;
+      audio_name.innerHTML = Album.name[count];
+      artist_name.innerHTML = Album.artist[count];
+      audio_path.src = Album.path[count];
+      audio_image.src = Album.image[count];
+      playAudio();
+    } else {
+      count++;
+      if (count === 5) {
+        audio_seri.innerHTML = `Playing music ${Album.seri[0]} of ${Album.seri.length}`;
+        audio_name.innerHTML = Album.name[0];
+        artist_name.innerHTML = Album.artist[0];
+        audio_path.src = Album.path[0];
+        audio_image.src = Album.image[0];
+        playAudio();
+        return (count = 0), (n = 0);
+      } else {
+        audio_seri.innerHTML = `Playing music ${Album.seri[count]} of ${Album.seri.length}`;
+        audio_name.innerHTML = Album.name[count];
+        artist_name.innerHTML = Album.artist[count];
+        audio_path.src = Album.path[count];
+        audio_image.src = Album.image[count];
+        playAudio();
+      }
+    }
+  } else {
+    if (shuffle === 1) {
+      count = Math.floor(Math.random() * 5);
+    }
+  }
+}
+//random background color -- copy -- xem cho hiểu
+function randomBackgroundColor() {
+  var colorOne = populate();
+  var colorTwo = populate();
+  document.body.style.background =
+    "linear-gradient(to right," + colorOne + "," + colorTwo + ")";
+  document.querySelector(".slider").style.background =
+    "linear-gradient(to right," + colorOne + "," + colorTwo + ")";
+  // document.querySelector(".volume_slider").style.background =
+  //   "linear-gradient(to right," + colorOne + "," + colorTwo + ")";
+}
+//random color
+function populate() {
+  var hex = [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+  ];
+  var colorRandom = "#";
+  for (var i = 0; i < 6; i++) {
+    var x = Math.round(Math.random() * 14);
+    var y = hex[x];
+    colorRandom += y;
+  }
+  return colorRandom;
+}
+//reused function
+function remove(id, name) {
+  return dom_id(id).classList.remove(name);
+}
+function add(id, name) {
+  return dom_id(id).classList.add(name);
+}
+function assignClassName(id, name) {
+  dom_id(id).className = name;
 }
