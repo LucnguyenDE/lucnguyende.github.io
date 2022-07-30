@@ -8,6 +8,7 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, rgb(74, 215, 148), rgb(164, 1, 124));
+  padding-top: 5em;
 }
 .feature * {
   font-size: 25px;
