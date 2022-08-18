@@ -4,7 +4,7 @@ const back = document.querySelector("#back");
 const cartGrocery = document.querySelector("#cart");
 const alert_quantity = document.querySelector("#item_alert");
 var item_json = localStorage.getItem("ITEM_PURCHASE");
-if (JSON.parse(item_json).length > 0) {
+if (JSON.parse(item_json) !== null) {
   cartListPurchase = JSON.parse(item_json);
   renderCartPurchase(cartListPurchase);
 } else {
