@@ -1,86 +1,79 @@
-var product_list = [];
-var cartListPurchase = [];
-const back = document.querySelector("#back");
-const cartGrocery = document.querySelector("#cart");
-const alert_quantity = document.querySelector("#item_alert");
-var item_json = localStorage.getItem("ITEM_PURCHASE");
-if (JSON.parse(item_json) !== null) {
-  cartListPurchase = JSON.parse(item_json);
-  renderCartPurchase(cartListPurchase);
-} else {
-  document.querySelector(
-    "#table_cart"
-  ).innerHTML = `<p> Mời bạn chọn sản phẩm. </p>`;
-}
-axios({
-  url: "https://62f8b7483eab3503d1da151c.mockapi.io/products",
-  method: "GET",
-})
-  .then(function (response) {
-    product_list = response.data;
-    renderProduct(product_list);
-  })
-  .catch(function (error) {
-    console.log("error: ", error);
-  });
-function showApple() {
-  var cartItem = [];
-  product_list.forEach(function (item) {
-    if (item.type.toLowerCase() == "iphone") {
-      cartItem.push(item);
+function showContent(tagID) {
+  var obj = document.querySelector(tagID);
+  var currentLI = obj.parentNode;
+  var hidden_dot = currentLI.querySelector("#hidden_dot");
+  var visible_dot = document.querySelector("#visible_dot");
+  obj.className = "animation_1";
+  if (
+    document.querySelector("#global-nav").className ===
+    "navbar-expand-lg navbar-light header-fixed1"
+  ) {
+    if (tagID === "#about_content") {
+      visible_dot.classList.add("remain_visible_dot_size");
+    } else if (
+      tagID === "#home_content" ||
+      tagID === "#courses_content" ||
+      tagID === "#blog_content" ||
+      tagID === "#shop_content" ||
+      tagID === "#element_content"
+    ) {
+      hidden_dot.className = "nav-link hidden_dot_2";
     }
-  });
-  back.classList.remove("d-none");
-  renderProduct(cartItem);
-}
-function showSamSung() {
-  var cartItem = [];
-  product_list.forEach(function (item) {
-    if (item.type.toLowerCase() == "samsung") {
-      cartItem.push(item);
+  } else if (
+    document.querySelector("#global-nav").className ===
+    "navbar-expand-lg navbar-light header-fixed2"
+  ) {
+    if (tagID === "#about_content") {
+      visible_dot.classList.add("remain_visible_dot_size");
+    } else if (
+      tagID === "#home_content" ||
+      tagID === "#courses_content" ||
+      tagID === "#blog_content" ||
+      tagID === "#shop_content" ||
+      tagID === "#element_content"
+    ) {
+      hidden_dot.className = "nav-link hidden_dot_3";
     }
-  });
-  back.classList.remove("d-none");
-  renderProduct(cartItem);
-}
-function backToList() {
-  renderProduct(product_list);
-  back.classList.add("d-none");
-}
-function addItem(id) {
-  var item = product_list.find(function (item) {
-    return item.name === id;
-  });
-  var new_product = new Product(
-    item.name,
-    item.price,
-    item.screen,
-    item.backCamera,
-    item.frontCamera,
-    item.img,
-    item.desc,
-    item.type
-  );
-  var cartItem = {
-    product: new_product,
-    quantity: 1,
-  };
-  console.log("cartItem: ", cartItem);
-  var index_check_duplicate = cartListPurchase.findIndex(function (item) {
-    return item.product.name === id;
-  });
-  console.log("index_check_duplicate: ", index_check_duplicate);
-  if (index_check_duplicate === -1) {
-    cartListPurchase.push(cartItem);
-  } else {
-    cartListPurchase[index_check_duplicate].quantity++;
   }
-  saveLocalStorage();
-  renderCartPurchase(cartListPurchase);
 }
-function showCart() {
-  cartGrocery.classList.remove("d-none");
+function hiddenContent(tagID) {
+  var obj = document.querySelector(tagID);
+  var currentLI = obj.parentNode;
+  var hidden_dot = currentLI.querySelector("#hidden_dot");
+  var visible_dot = document.querySelector("#visible_dot");
+  obj.className = "animation_2";
+  if (tagID === "#about_content") {
+    visible_dot.classList.remove("remain_visible_dot_size");
+  } else if (
+    tagID === "#home_content" ||
+    tagID === "#courses_content" ||
+    tagID === "#blog_content" ||
+    tagID === "#shop_content" ||
+    tagID === "#element_content"
+  ) {
+    hidden_dot.className = "nav-link hidden_dot_1";
+  }
 }
-function hideCart() {
-  cartGrocery.classList.add("d-none");
+
+// sticky nav
+$(window).scroll(function () {
+  if ($(window).scrollTop() == 0) {
+    document.querySelector("#global-nav").className =
+      "navbar-expand-lg navbar-light header-fixed1";
+    document.querySelector("#header").className = "header_animation_1";
+  }
+
+  if ($(window).scrollTop() >= 300) {
+    document.querySelector("#global-nav").className =
+      "navbar-expand-lg navbar-light header-fixed2";
+    document.querySelector("#header").className =
+      "header_animation_2 position-fixed";
+  }
+});
+
+function showSpecialContent(tagID) {
+  document.querySelector(tagID).classList.remove("d-none");
+}
+function hiddenSpecialContent(tagID) {
+  document.querySelector(tagID).classList.add("d-none");
 }
